@@ -1,0 +1,85 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "containerGroups_policedatametabase_name": {
+            "defaultValue": "policedatametabase",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('containerGroups_policedatametabase_name')]",
+            "location": "uksouth",
+            "tags": {
+                "DB": "postgres",
+                "image": "latest",
+                "repo": "dockerhub"
+            },
+            "properties": {
+                "containers": [
+                    {
+                        "name": "[parameters('containerGroups_policedatametabase_name')]",
+                        "properties": {
+                            "image": "metabase/metabase",
+                            "ports": [
+                                {
+                                    "protocol": "TCP",
+                                    "port": 3000
+                                }
+                            ],
+                            "environmentVariables": [
+                                {
+                                    "name": "MB_DB_TYPE",
+                                    "value": "postgres"
+                                },
+                                {
+                                    "name": "MB_DB_DBNAME",
+                                    "value": "metabase"
+                                },
+                                {
+                                    "name": "MB_DB_PORT",
+                                    "value": "5432"
+                                },
+                                {
+                                    "name": "MB_DB_USER",
+                                    "value": "metabase"
+                                },
+                                {
+                                    "name": "MB_DB_PASS",
+                                    "value": "pass"
+                                },
+                                {
+                                    "name": "MB_DB_HOST",
+                                    "value": "DB location"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "memoryInGB": 8,
+                                    "cpu": 2
+                                }
+                            }
+                        }
+                    }
+                ],
+                "restartPolicy": "OnFailure",
+                "ipAddress": {
+                    "ports": [
+                        {
+                            "protocol": "TCP",
+                            "port": 3000
+                        }
+                    ],
+                    "ip": "*.*.*.*",
+                    "type": "Public",
+                    "dnsNameLabel": "ukpolicingdata"
+                },
+                "osType": "Linux"
+            }
+        }
+    ]
+}

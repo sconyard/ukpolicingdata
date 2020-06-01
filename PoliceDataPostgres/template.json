@@ -1,0 +1,65 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "containerGroups_policedatapostgres_name": {
+            "defaultValue": "policedatapostgres",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('containerGroups_policedatapostgres_name')]",
+            "location": "uksouth",
+            "tags": {
+                "DB": "postgres",
+                "image": "latest",
+                "repo": "dockerhub"
+            },
+            "properties": {
+                "containers": [
+                    {
+                        "name": "[parameters('containerGroups_policedatapostgres_name')]",
+                        "properties": {
+                            "image": "postgres",
+                            "ports": [
+                                {
+                                    "protocol": "TCP",
+                                    "port": 5432
+                                }
+                            ],
+                            "environmentVariables": [
+                                {
+                                    "name": "POSTGRES_PASSWORD",
+                                    "value": "pass"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "memoryInGB": 4,
+                                    "cpu": 1
+                                }
+                            }
+                        }
+                    }
+                ],
+                "restartPolicy": "OnFailure",
+                "ipAddress": {
+                    "ports": [
+                        {
+                            "protocol": "TCP",
+                            "port": 5432
+                        }
+                    ],
+                    "ip": "*.*.*.*",
+                    "type": "Public",
+                    "dnsNameLabel": "[parameters('containerGroups_policedatapostgres_name')]"
+                },
+                "osType": "Linux"
+            }
+        }
+    ]
+}
