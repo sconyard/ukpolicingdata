@@ -55,6 +55,10 @@
                                 {
                                     "name": "MB_DB_HOST",
                                     "value": "DB location"
+                                },
+                                {
+                                    "name": "JAVA_TOOL_OPTIONS",
+                                    "value": "-Xmx8g"
                                 }
                             ],
                             "resources": {
