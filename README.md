@@ -2,6 +2,10 @@
 
 Opensource software and serverless methods to interrogate public data
 
+## Data Manipulation
+
+The RAW data arrives in many thousands of CSV files seperated by data set (stop and search, crimes or outcomes) and regional police authority.  PowerShell is used to manipulate this data into single CSV file per data set ready for upload.
+
 ## Azure Data Factory
 
 Azure Data Factory injects the public police data into the Azure SQL tables.  Pipelines exist for CSVs hosted within BLOB storage and API calls to [Policing data](https://data.police.uk/docs/)
@@ -9,6 +13,10 @@ Azure Data Factory injects the public police data into the Azure SQL tables.  Pi
 ## Azure SQL
 
 Due to the size of the public policing data this is stored in a serverless Azure SQL DB.  For reference the reported crimes table is over 9 million rows and the reported outcomes 6 million rows.
+
+Town information is stored in a column 'LSOA_Name' within tables for outcome and reported crime. An SQL query copies 'LSOA_Name' data filtering numerical characters to a new column named 'Town', to allow simple location searching on the outcome and reported crime datasets
+
+The raw data is not edited anywhere else
 
 ## Postgres
 
