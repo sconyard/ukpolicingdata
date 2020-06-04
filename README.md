@@ -1,6 +1,6 @@
 # UK Policing Data
 
-Opensource software to interrogate public data, hosted in the cloud using serverless methods
+Opensource software and serverless methods to interrogate public data
 
 ## Azure Data Factory
 
@@ -31,7 +31,9 @@ Metabase configuration data is persisted within Postgres
 Metabase hosts public dashboards
 
 [Reported Crime](http://ukpolicingdata.uksouth.azurecontainer.io:3000/public/dashboard/9ad8664f-78de-4838-9d03-0c214a3c6142?date_range=2020-01-01~2020-04-30)
+
 [Reported Outcomes](http://ukpolicingdata.uksouth.azurecontainer.io:3000/public/dashboard/4cf0adf6-0bcf-4ef4-8d99-e5154b792c6e?date_range=2020-01-01~2020-04-30)
+
 [Stop and Search](http://ukpolicingdata.uksouth.azurecontainer.io:3000/public/dashboard/737c8bb9-6464-4836-a8cb-062ef553d690)
 
 Data > Information > Knowledge > Wisdom
