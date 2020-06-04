@@ -4,7 +4,7 @@ Opensource software and serverless methods to interrogate public data
 
 ## Data Manipulation
 
-The RAW data arrives in many thousands of CSV files seperated by data set (stop and search, crimes or outcomes) and regional police authority.  PowerShell is used to manipulate this data into single CSV file per data set ready for upload.
+The RAW data arrives in many thousands of CSV files separated by data set (stop and search, crimes or outcomes) and regional police authority.  PowerShell is used to manipulate this data into single CSV file per data set ready for upload.
 
 ## Azure Data Factory
 
