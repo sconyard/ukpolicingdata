@@ -28,6 +28,8 @@ Postgres DB docker image deployed inside an Azure container service.  Hosting po
 
 ## Architecture
 
+![Police Data Architecture](https://raw.githubusercontent.com/sconyard/ukpolicingdata/master/images/Virtual-Simon%20-%20Police%20Data%20Solution%20Architecture%20Flow.png)
+
 Azure Data Factory pipelines import data from BLOB and API sources to tables within an Azure SQL DB
 
 Azure SQL DB hosts three Data Factory populated tables for recorded crime, reported outcomes and stop and search data
@@ -45,3 +47,12 @@ Metabase hosts public dashboards
 [Stop and Search](http://ukpolicingdata.uksouth.azurecontainer.io:3000/public/dashboard/737c8bb9-6464-4836-a8cb-062ef553d690)
 
 Data > Information > Knowledge > Wisdom
+
+## Examples
+
+![Stop and Search](https://raw.githubusercontent.com/sconyard/ukpolicingdata/master/images/Virtual-Simon%20-%20Police%20Data%20Stop%20and%20Search%20example.png)
+
+![Reported Outcomes](https://raw.githubusercontent.com/sconyard/ukpolicingdata/master/images/Virtual-Simon%20-%20Police%20Data%20Reported%20Outcomes%20Example.png)
+
+![Reported Crime](https://raw.githubusercontent.com/sconyard/ukpolicingdata/master/images/Virtual-Simon%20-%20Police%20Data%20Reported%20Crime%20Example.png)
+
